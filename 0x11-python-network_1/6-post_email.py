@@ -1,12 +1,14 @@
-"""
-Use requests package to make a post request sending email param
-and display body of response.
-"""
-import sys
+#!/usr/bin/python3
+"""Check status"""
 import requests
+import sys
+
+
+def post():
+    """status"""
+    result = requests.post(sys.argv[1], data={"email": sys.argv[2]})
+
+    print(result.text)
 
 if __name__ == "__main__":
-    url = sys.argv[1]
-    payload = {'email': sys.argv[2]}
-    r = requests.post(url, data=payload)
-    print(r.text)
+    post()
