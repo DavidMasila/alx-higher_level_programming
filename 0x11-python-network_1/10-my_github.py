@@ -1,14 +1,22 @@
 #!/usr/bin/python3
-"""
-Python script that takes your Github credentials (username and password)
-and uses the Github API to display your id
-"""
+"""Check status"""
 import requests
 from requests.auth import HTTPBasicAuth
-from sys import argv
+import sys
 
-if __name__ == '__main__':
-    url = 'https://api.github.com/users/{}'.format(argv[1])
-    r = requests.get(url,
-                     auth=HTTPBasicAuth(argv[1], argv[2]))
-    print(r.json().get('id'))
+
+def searchapi():
+    """status"""
+    user = str(sys.argv[1])
+    pw = str(sys.argv[2])
+    result = requests.get("https://api.github.com/user",
+                          auth=(HTTPBasicAuth(user, pw)))
+
+    try:
+        data = result.json()
+        print(data["id"])
+    except:
+        print("None")
+
+if __name__ == "__main__":
+    searchapi()
