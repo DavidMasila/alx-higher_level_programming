@@ -4,8 +4,8 @@
     with the email as a parameter.
     Displays the body of the response
 """
-import requests
 import sys
+import requests
 
 
 if __name__ == "__main__":
