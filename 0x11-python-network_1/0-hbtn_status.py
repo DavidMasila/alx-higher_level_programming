@@ -1,12 +1,9 @@
 """
     A script that fetches https://intranet.htbn.io/status
 """
-
-
-import urllib.request
-
-
-if __name__ == "__main__":
+if __name__ == "__main__": 
+    import urllib.request
+    
     with urllib.request.urlopen('https://alx-intranet.hbtn.io/status') as resp:
         html = resp.read()
 
