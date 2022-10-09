@@ -6,7 +6,7 @@ from urllib.error import HTTPError
 import sys 
 
 
-if __name__=="__main__":
+if __name__ == "__main__":
     url=sys.argv[1]
 
     req = Request(url)
