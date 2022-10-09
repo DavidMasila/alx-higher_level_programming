@@ -7,13 +7,13 @@ import sys
 
 
 if __name__ == "__main__":
-    url=sys.argv[1]
+    url = sys.argv[1]
 
     req = Request(url)
 
     try:
         with urlopen(req) as resp:
-            body=resp.read()
+            body = resp.read()
             print(body.decode("utf-8"))
     except HTTPError as e:
         print("Error code: ",e.code)
