@@ -7,16 +7,15 @@
 """
 
 import sys
-from urllib.request import Request
-from urllib.parse import urlencode
-from urllib.error import HTTPError
+import urllib.request
+import urllib.parse
 
 
 if __name__ == "__main__":
-    req = Request(sys.argv[1])
+    req = urllib.request.Request(sys.argv[1])
     try:
-        with urlopen(req) as resp:
+        with urllib.request.urlopen(req) as resp:
             html = resp.read()
             print("{}".format(html.decode('utf-8')))
-    except HTTPError as e:
+    except urllib.error.HTTPError as e:
         print("Error code: {}".format(e.code))
