@@ -11,9 +11,9 @@ if __name__=="__main__":
 
     req = Request(url)
 
-    with urlopen(req) as resp:
-        try:
-            body = resp.read()
+    try:
+        with open(req) as resp:
+            body=resp.read()
             print(body.decode("utf-8"))
-        except HTTPError as e :
-            print("Error code: ",e.code)
+    except HTTPError as e:
+        print("Error code: ",e.code)
