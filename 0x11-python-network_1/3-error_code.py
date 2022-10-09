@@ -1,18 +1,15 @@
 #!/usr/bin/python3 
 
-from urllib.request import Request, urlopen
-from urllib.parse import urlencode
-from urllib.error import HTTPError
-import sys 
-
+import sys
+import urllib.request
+import urllib.error
+import urllib.parse
 
 if __name__ == "__main__":
     url = sys.argv[1]
-
-    req = Request(url)
-
+    req = urllib.request.Request(url)
     try:
-        with urlopen(req) as resp:
+        with urllib.request.urlopen(req) as resp:
             body = resp.read()
             print(body.decode("utf-8"))
     except HTTPError as e:
