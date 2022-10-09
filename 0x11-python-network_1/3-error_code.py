@@ -11,7 +11,7 @@ if __name__=="__main__":
     req = Request(url)
 
     try:
-        with open(req) as resp:
+        with urlopen(req) as resp:
             body=resp.read()
             print(body.decode("utf-8"))
     except HTTPError as e:
