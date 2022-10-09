@@ -1,14 +1,12 @@
-#!/usr/bin/python3
-"""Check status"""
-import requests
+#!/usr/bin/python3 
+
 import sys
-
-
-def post():
-    """status"""
-    result = requests.post(sys.argv[1], data={"email": sys.argv[2]})
-
-    print(result.text)
+import requests 
 
 if __name__ == "__main__":
-    post()
+    url=sys.argv[1]
+    email=sys.argv[2]
+    email_data={"email":email}
+
+    r = requests.post(url, data=email_data)
+    print(r.text)
