@@ -1,13 +1,14 @@
-#!/usr/bin/python3
-"""
-    A script that sends a request to the URL and displays the
-    value of the X-Request-Id found in the response
-"""
-
-import sys
-import urllib.request
+#!/bin/bash/python3 
+from urllib.request import Request, urlopen
+from urllib.parse import urlencode
+import sys 
 
 
-if __name__ == "__main__":
-    with urllib.request.urlopen(sys.argv[1]) as resp:
-        print('{}'.format(resp.info().get('X-Request-id')))
+if __name__=="__main__":
+    url = sys.argv[1]
+    email=urlencode({"email":sys.argv[2]}).encode("ascii")
+
+    req = Request(url, email)
+    with urlopen(req) as resp:
+        body=resp.read()
+        print(body.decode("utf-8"))
