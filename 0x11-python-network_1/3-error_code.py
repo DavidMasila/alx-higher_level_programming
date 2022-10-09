@@ -1,7 +1,6 @@
 #!/bin/bash/python3 
 
 from urllib.request import Request, urlopen
-from urllib.parse import urlencode
 from urllib.error import HTTPError
 import sys 
 
