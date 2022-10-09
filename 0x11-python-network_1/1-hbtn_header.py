@@ -1,7 +1,7 @@
 #!/usr/bin/python3
-"""A script that takes in a URL,
-Sends a request to the URL,
-And displays the value of the X-Request-Id variable found in the header ofthe response.
+"""
+    A script that sends a request to the URL and displays the
+    value of the X-Request-Id found in the response
 """
 
 import sys
@@ -9,9 +9,5 @@ import urllib.request
 
 
 if __name__ == "__main__":
-    url = sys.argv[1]
-
-    request = urllib.request.Request(url)
-    with urllib.request.urlopen(request) as resp:
-        headers = dict(resp.getheaders()).get('X-Request-ID')
-    print(headers)
+    with urllib.request.urlopen(sys.argv[1]) as resp:
+        print('{}'.format(resp.info().get('X-Request-id')))
