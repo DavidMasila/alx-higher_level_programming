@@ -1,19 +1,13 @@
-#!/bin/bash/python3 
+#!/usr/bin/python3
+"""
+    A script that sends a request to the URL and displays the
+    value of the X-Request-Id found in the response
+"""
 
-from urllib.request import Request, urlopen
-from urllib.parse import urlencode
-from urllib.error import HTTPError
-import sys 
+import sys
+import urllib.request
 
 
-if __name__=="__main__":
-    url=sys.argv[1]
-
-    req = Request(url)
-
-    with urlopen(req) as resp:
-        try:
-            body = resp.read()
-            print(body.decode("utf-8"))
-        except HTTPError as e :
-            print("Error code: ",e.code)
+if __name__ == "__main__":
+    with urllib.request.urlopen(sys.argv[1]) as resp:
+        print('{}'.format(resp.info().get('X-Request-id')))
