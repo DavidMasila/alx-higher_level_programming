@@ -1,5 +1,5 @@
 #!/usr/bin/node
-//reads a file in utf-8 format
+// reads a file in utf-8 format
 const fs = require('fs')
 const process = require('process')
 
