@@ -10,10 +10,11 @@ request(args[2], (error, res, body) => {
   if (error) {
     console.log(error);
   } else {
+    let i =0;
     let count = 0;
     const moviesData = JSON.parse(body);
-    for (i = 0; i <= moviesData.length; i++) {
-      if (moviesData.results.episode_id === charID) {
+    for (i=0; i <= moviesData.length; i++) {
+      if (moviesData['results']['episode_id'] === charID) {
         count += 1;
       }
     }
