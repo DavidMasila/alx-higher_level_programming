@@ -1,4 +1,4 @@
-#!usr/bin/node
+#!/usr/bin/node
 // Write a script that prints all characters of a Star Wars movie:
 
 const request = require('request');
