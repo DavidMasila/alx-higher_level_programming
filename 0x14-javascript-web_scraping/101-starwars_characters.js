@@ -9,8 +9,8 @@ request.get(url, (err, res, body) => {
   if (err) {
     console.error(err);
   } else {
-    const result = JSON.parse(body).characters;
-    printCharacters(result, 0);
+    const character = JSON.parse(body).characters;
+    printCharacters(character, 0);
   }
 });
 
